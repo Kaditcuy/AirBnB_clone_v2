@@ -8,17 +8,15 @@ import json
 import os
 
 
-class test_basemodel(unittest.TestCase):
-    """ """
+class TestBaseModel(unittest.TestCase):
+    """Testing initialization of the basemodel object """
 
-    def __init__(self, *args, **kwargs):
-        """ """
-        super().__init__(*args, **kwargs)
-        self.name = 'BaseModel'
-        self.value = BaseModel
-
+    @classmethod
     def setUp(self):
-        """ """
+        """Testing creation of the base objects"""
+        cls.base1 = BaseModel()
+        cls.base1.name = "Chelsea"
+        cls.base1.my_number = 29
         pass
 
     def tearDown(self):
