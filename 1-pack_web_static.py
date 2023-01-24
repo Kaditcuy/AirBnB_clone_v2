@@ -4,7 +4,7 @@ generates a .tgz archive from the contents of the web_static folder
 of the Airbnb clone, using do_pack function
 """
 from datetime import datetime
-from fabric.api import *
+from fabric.api import local
 import os
 
 
