@@ -15,7 +15,8 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 
 
 class DBStorage:
-    """Class representation of database storage"""
+    """Class representation of database storage
+    """
     __engine = None
     __session = None
     check_class = {"Amenity": Amenity,
@@ -23,7 +24,8 @@ class DBStorage:
                    "State": State, "User": User}
 
     def __init__(self):
-        """constructor for DB class"""
+        """constructor for DB class
+        """
         env = getenv("HBNB_ENV")
         username = getenv("HBNB_MYSQL_USER")
         password = getenv("HBNB_MYSQL_PWD")
@@ -84,3 +86,9 @@ class DBStorage:
                                        expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session()
+
+    def close(self):
+        """call remove() method on the private session attribute
+        (self.__session) tips or close() on the class Session tips
+        """
+        self.__session.close()
